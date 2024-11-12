@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Devinette</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #97aff1;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 50px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jeu de Devinette</h1>
+    <p>Devinez un nombre entre 1 et 100 :</p>
+    <input type="number" id="guess" min="1" max="100">
+    <button onclick="checkGuess()">Vérifier</button>
+    <p id="message"></p>
+
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        function checkGuess() {
+            const userGuess = parseInt(document.getElementById('guess').value);
+            attempts++;
+            const messageElement = document.getElementById('message');
+
+            if (userGuess < 1 || userGuess > 100) {
+                messageElement.textContent = 'Veuillez entrer un nombre entre 1 et 100.';
+            } else if (userGuess === randomNumber) {
+                messageElement.textContent = `Bravo ! Vous avez deviné le nombre ${randomNumber} en ${attempts} essais.`;
+            } else if (userGuess < randomNumber) {
+                messageElement.textContent = 'Trop bas ! Essayez encore.';
+            } else {
+                messageElement.textContent = 'Trop haut ! Essayez encore.';
+            }
+        }
+    </script>
+</body>
+</html>

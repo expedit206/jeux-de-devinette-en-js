@@ -50,7 +50,6 @@
             attempts++;
             const messageElement = document.getElementById('message');
             
-
             if (userGuess < 1 || userGuess > 100) {
                 messageElement.textContent = 'Veuillez entrer un nombre entre 1 et 100.';
             } else if (userGuess === randomNumber) {

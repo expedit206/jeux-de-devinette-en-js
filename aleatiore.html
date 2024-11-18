@@ -58,6 +58,7 @@
             } else if (userGuess === randomNumber) {
                 messageElement.textContent = `Bravo ! Vous avez deviné le nombre ${randomNumber} en ${attempts} essais.`;
             } else if (userGuess < randomNumber) {
+                
                 messageElement.textContent = 'Trop bas ! Essayez encore.';
             } else {
                 messageElement.textContent = 'Trop haut ! Essayez encore.';
